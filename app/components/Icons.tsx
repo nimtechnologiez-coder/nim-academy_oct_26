@@ -1,42 +1,20 @@
 import React from "react";
 
-// NIM Academy Logo Lockup matching reference image
-export function NimLogoLockup({ className }: { className?: string }) {
+// NIM Academy Logo Lockup using public/nimlogo.webp image
+export function NimLogoLockup({ className, height = 44 }: { className?: string; height?: number }) {
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "10px", textDecoration: "none" }} className={className}>
-      <div
-        style={{
-          width: "44px",
-          height: "44px",
-          borderRadius: "10px",
-          background: "linear-gradient(135deg, #0284c7 0%, #0369a1 60%, #00b4d8 100%)",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          boxShadow: "0 4px 12px rgba(2, 132, 199, 0.25)",
-          color: "#ffffff",
-          fontWeight: 900,
-          lineHeight: 1,
-          padding: "4px",
-        }}
-      >
-        <span style={{ fontSize: "14px", letterSpacing: "1px", color: "#ffffff", fontWeight: 900 }}>NIM</span>
-        <span style={{ fontSize: "7px", letterSpacing: "1px", color: "#64de44", fontWeight: 800, marginTop: "2px" }}>
-          ACADEMY
-        </span>
-      </div>
-      <div style={{ display: "flex", flexDirection: "column" }}>
-        <span style={{ fontSize: "1.15rem", fontWeight: 800, letterSpacing: "-0.02em", color: "var(--color-text-main)", lineHeight: 1.1 }}>
-          NIM <span style={{ color: "#64de44" }}>ACADEMY</span>
-        </span>
-      </div>
+      <img
+        src="/nimlogo.webp"
+        alt="NIM Academy Logo"
+        style={{ height: `${height}px`, width: "auto", objectFit: "contain", display: "block" }}
+      />
     </div>
   );
 }
 
-export function BrandLogoIcon({ className }: { className?: string }) {
-  return <NimLogoLockup className={className} />;
+export function BrandLogoIcon({ className, height = 44 }: { className?: string; height?: number }) {
+  return <NimLogoLockup className={className} height={height} />;
 }
 
 // Calendar icon with clock/lines

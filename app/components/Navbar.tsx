@@ -41,7 +41,9 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
   const navLinks = [
     { label: "Why NIM", href: "#why-nim" },
     { label: "Curriculum", href: "#curriculum" },
+    { label: "Mentors", href: "#mentors" },
     { label: "Placements", href: "#placements" },
+    { label: "Testimonials", href: "#testimonials" },
     { label: "Gateways", href: "#gateways" },
     { label: "Student Portal", href: "#student-portal" },
   ];
@@ -87,7 +89,7 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
             className={styles.headerBtnConsultation}
             id="nav-consultation-btn"
           >
-            <span>Book Free Consultation</span>
+            <span>Register Now</span>
             <ArrowRightIcon />
           </button>
 
@@ -123,7 +125,7 @@ export default function Navbar({ onOpenConsultation }: NavbarProps) {
             className={styles.headerBtnConsultation}
             style={{ width: "100%", marginTop: "12px", justifyContent: "center" }}
           >
-            <span>Book Free Consultation</span>
+            <span>Register Now</span>
             <ArrowRightIcon />
           </button>
         </div>

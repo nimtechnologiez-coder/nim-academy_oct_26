@@ -15,20 +15,29 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
     email: "",
     phone: "",
     experience: "College Student / Fresh Graduate",
-    preferredTime: "Morning (10 AM - 1 PM)",
   });
   const [submitted, setSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   if (!isOpen) return null;
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
+    try {
+      await fetch("http://127.0.0.1:8000/api/register/", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+    } catch (err) {
+      console.error("Backend registration error:", err);
+    } finally {
       setIsSubmitting(false);
       setSubmitted(true);
-    }, 600);
+    }
   };
 
   const handleClose = () => {
@@ -42,17 +51,17 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
         <button
           onClick={handleClose}
           className={styles.modalCloseBtn}
-          aria-label="Close consultation modal"
+          aria-label="Close registration modal"
         >
           <CloseIcon />
         </button>
 
         {submitted ? (
-          <div style={{ textAlign: "center", padding: "20px 0" }}>
+          <div style={{ textAlign: "center", padding: "24px 8px" }}>
             <div
               style={{
-                width: "56px",
-                height: "56px",
+                width: "60px",
+                height: "60px",
                 borderRadius: "50%",
                 backgroundColor: "var(--color-nim-lime-bg)",
                 color: "var(--color-nim-lime)",
@@ -64,12 +73,12 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
             >
               <CheckIcon />
             </div>
-            <h3 style={{ fontSize: "1.4rem", fontWeight: 800, marginBottom: "8px" }}>
-              Consultation Scheduled!
+            <h3 style={{ fontSize: "1.4rem", fontWeight: 800, marginBottom: "8px", color: "var(--color-text-main)" }}>
+              Registration Submitted!
             </h3>
-            <p style={{ color: "var(--color-text-muted)", fontSize: "0.95rem", lineHeight: 1.5, marginBottom: "24px" }}>
-              Thanks {formData.name || "there"}! An AI Engineering mentor will contact you at{" "}
-              <strong>{formData.phone || formData.email}</strong> during your preferred slot.
+            <p style={{ color: "var(--color-text-muted)", fontSize: "0.925rem", lineHeight: 1.55, marginBottom: "24px" }}>
+              Welcome <strong>{formData.name || "Student"}</strong>! Your registration for the Generative AI Engineering Program has been received. An academic advisor will contact you at{" "}
+              <strong>{formData.phone || formData.email}</strong> to finalize your cohort onboarding.
             </p>
             <button onClick={handleClose} className={styles.btnPrimaryGreen} style={{ width: "100%" }}>
               Done
@@ -77,15 +86,15 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
           </div>
         ) : (
           <div>
-            <div style={{ marginBottom: "20px" }}>
+            <div style={{ marginBottom: "24px" }}>
               <span className={styles.sectionBadge} style={{ marginBottom: "8px" }}>
-                1-on-1 Guidance
+                Enrollment Open
               </span>
               <h3 style={{ fontSize: "1.4rem", fontWeight: 800, color: "var(--color-text-main)", marginBottom: "6px" }}>
-                Book Your Free AI Career Consultation
+                Register for Generative AI Engineering
               </h3>
-              <p style={{ fontSize: "0.875rem", color: "var(--color-text-muted)" }}>
-                Speak with our engineering mentors about eligibility, curriculum details, and placement roadmaps.
+              <p style={{ fontSize: "0.875rem", color: "var(--color-text-muted)", lineHeight: 1.5 }}>
+                Secure your seat in the upcoming cohort. Zero-prerequisite to job-ready AI engineering.
               </p>
             </div>
 
@@ -122,7 +131,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
 
               <div className={styles.formGroup}>
                 <label className={styles.formLabel} htmlFor="modal-phone">
-                  Phone Number
+                  Phone / WhatsApp Number
                 </label>
                 <input
                   id="modal-phone"
@@ -137,7 +146,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
 
               <div className={styles.formGroup}>
                 <label className={styles.formLabel} htmlFor="modal-exp">
-                  Experience Level
+                  Current Experience Level
                 </label>
                 <select
                   id="modal-exp"
@@ -148,31 +157,15 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                   <option value="College Student / Fresh Graduate">
                     College Student / Fresh Graduate
                   </option>
-                  <option value="Non-tech professional switching to AI">
-                    Non-tech professional switching to AI
+                  <option value="Software Engineer (0-2 Yrs)">
+                    Software Engineer (0–2 Yrs)
                   </option>
-                  <option value="Software Developer (0-2 yrs)">
-                    Software Developer (0–2 yrs)
+                  <option value="Senior Tech Lead / Architect (3+ Yrs)">
+                    Senior Tech Lead / Architect (3+ Yrs)
                   </option>
-                  <option value="Experienced Developer / Lead (3+ yrs)">
-                    Experienced Developer / Lead (3+ yrs)
+                  <option value="Non-Tech Professional Switching to AI">
+                    Non-Tech Professional Switching to AI
                   </option>
-                </select>
-              </div>
-
-              <div className={styles.formGroup}>
-                <label className={styles.formLabel} htmlFor="modal-time">
-                  Preferred Time Slot
-                </label>
-                <select
-                  id="modal-time"
-                  className={styles.formSelect}
-                  value={formData.preferredTime}
-                  onChange={(e) => setFormData({ ...formData, preferredTime: e.target.value })}
-                >
-                  <option value="Morning (10 AM - 1 PM)">Morning (10 AM – 1 PM)</option>
-                  <option value="Afternoon (2 PM - 5 PM)">Afternoon (2 PM – 5 PM)</option>
-                  <option value="Evening (6 PM - 9 PM)">Evening (6 PM – 9 PM)</option>
                 </select>
               </div>
 
@@ -180,13 +173,13 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
                 type="submit"
                 disabled={isSubmitting}
                 className={styles.btnPrimaryGreen}
-                style={{ width: "100%", marginTop: "8px" }}
+                style={{ width: "100%", marginTop: "12px", padding: "14px 20px" }}
               >
-                {isSubmitting ? "Confirming..." : "Confirm Free Consultation"}
+                {isSubmitting ? "Submitting Registration..." : "Complete Registration →"}
               </button>
 
               <p className={styles.formConsent}>
-                🔒 100% confidential. No spam guaranteed.
+                🔒 100% Secure Registration. No spam guaranteed.
               </p>
             </form>
           </div>

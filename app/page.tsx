@@ -16,6 +16,9 @@ import FinalCtaSection from "./components/FinalCtaSection";
 import Footer from "./components/Footer";
 import ConsultationModal from "./components/ConsultationModal";
 
+import MentorsSection from "./components/MentorsSection";
+import TestimonialsSection from "./components/TestimonialsSection";
+
 export default function Home() {
   const [isConsultationOpen, setIsConsultationOpen] = useState(false);
 
@@ -37,9 +40,11 @@ export default function Home() {
         <HeroSection onOpenConsultation={openConsultation} />
         <WhyNimSection />
         <CurriculumSection />
+        <MentorsSection />
         <ToolsSection />
         <MicrosoftAdvantageSection />
         <PlacementsSection />
+        <TestimonialsSection />
         <GatewaysSection />
         <StudentPortalSection />
         <TeachingStyleSection />
@@ -64,7 +69,7 @@ export default function Home() {
           className={styles.btnPrimaryGreen}
           style={{ padding: "8px 16px", fontSize: "0.8125rem" }}
         >
-          Book Free Consultation
+          Register Now
         </button>
       </div>
 

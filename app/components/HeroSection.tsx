@@ -11,6 +11,7 @@ import {
   SparklesIcon,
   CodeProjectsIcon,
   ShieldCheckBadgeIcon,
+  UsersGroupIcon,
 } from "./Icons";
 
 interface HeroSectionProps {
@@ -70,7 +71,7 @@ export default function HeroSection({ onOpenConsultation }: HeroSectionProps) {
                 className={styles.asymmetricBtnPrimary}
                 id="hero-book-consultation-btn"
               >
-                <span>Book Free Consultation</span>
+                <span>Register Now</span>
                 <ArrowRightIcon className={styles.btnArrowIcon} />
               </button>
 
@@ -196,8 +197,20 @@ export default function HeroSection({ onOpenConsultation }: HeroSectionProps) {
                 <StudentsStatIcon />
               </div>
               <div className={styles.compactStatContent}>
-                <div className={styles.compactStatNumber}>50+</div>
+                <div className={styles.compactStatNumber}>200+</div>
                 <div className={styles.compactStatLabel}>Students Placed</div>
+              </div>
+            </div>
+
+            <div className={styles.statDividerVertical} />
+
+            <div className={styles.compactStatItem}>
+              <div className={`${styles.compactStatIcon} ${styles.statIconLime}`}>
+                <UsersGroupIcon />
+              </div>
+              <div className={styles.compactStatContent}>
+                <div className={styles.compactStatNumber}>6000+</div>
+                <div className={styles.compactStatLabel}>Trained Students</div>
               </div>
             </div>
 
@@ -210,18 +223,6 @@ export default function HeroSection({ onOpenConsultation }: HeroSectionProps) {
               <div className={styles.compactStatContent}>
                 <div className={styles.compactStatNumber}>170+</div>
                 <div className={styles.compactStatLabel}>Partner Companies</div>
-              </div>
-            </div>
-
-            <div className={styles.statDividerVertical} />
-
-            <div className={styles.compactStatItem}>
-              <div className={`${styles.compactStatIcon} ${styles.statIconLime}`}>
-                <CalendarIcon />
-              </div>
-              <div className={styles.compactStatContent}>
-                <div className={styles.compactStatNumber}>6 Months</div>
-                <div className={styles.compactStatLabel}>Live Training</div>
               </div>
             </div>
           </div>

@@ -9,16 +9,10 @@ export default function Footer() {
     <footer className={styles.footer}>
       <div className={styles.container}>
         <div className={styles.footerGrid}>
-          {/* Brand Col */}
+          {/* Column 1: Brand & Overview */}
           <div className={styles.footerBrandCol}>
             <div className={styles.brandLogo}>
-              <div className={styles.logoIcon}>
-                <BrandLogoIcon />
-              </div>
-              <div className={styles.logoTextGroup}>
-                <span className={styles.logoTitle}>NIM ACADEMY</span>
-                <span className={styles.logoSubtitle}>by NIM Technologies</span>
-              </div>
+              <BrandLogoIcon height={52} />
             </div>
 
             <p className={styles.footerBrandTagline}>
@@ -46,8 +40,8 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Column 2: Navigation */}
-          <div>
+          {/* Column 2: Programs */}
+          <div className={styles.footerCol}>
             <h4 className={styles.footerColTitle}>Programs</h4>
             <ul className={styles.footerLinks}>
               <li>
@@ -73,8 +67,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Platform */}
-          <div>
+          {/* Column 3: Platform & Career */}
+          <div className={styles.footerCol}>
             <h4 className={styles.footerColTitle}>Platform & Career</h4>
             <ul className={styles.footerLinks}>
               <li>
@@ -100,28 +94,35 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 4: Contact & Location */}
-          <div>
+          {/* Column 4: Contact & Organization */}
+          <div className={styles.footerCol}>
             <h4 className={styles.footerColTitle}>NIM Technologies</h4>
-            <p style={{ fontSize: "0.875rem", lineHeight: 1.6, color: "var(--color-text-muted)", marginBottom: "12px" }}>
-              NIM Technologies Pvt. Ltd.
-              <br />
-              Enterprise AI solutions, talent incubator, and applied machine learning research.
-            </p>
-            <div style={{ fontSize: "0.8125rem", color: "var(--color-nim-teal)" }}>
-              Email: admissions@nimacademy.in
+            <div className={styles.companyMetaBox}>
+              <span className={styles.companyName}>NIM Technologies Pvt. Ltd.</span>
+              <p className={styles.companyDesc}>
+                Enterprise AI solutions, talent incubator, and applied machine learning research.
+              </p>
+              <a href="mailto:contactnimacademy@gmail.com" className={styles.contactEmailLink}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+                <span>contactnimacademy@gmail.com</span>
+              </a>
             </div>
           </div>
         </div>
 
         {/* Footer Bottom */}
         <div className={styles.footerBottom}>
-          <div>
+          <div className={styles.copyrightText}>
             © {new Date().getFullYear()} NIM Technologies × NIM Academy. All rights reserved.
           </div>
-          <div style={{ display: "flex", gap: "20px" }}>
+          <div className={styles.bottomLegalLinks}>
             <a href="#" className={styles.footerLink}>Privacy Policy</a>
+            <span className={styles.bottomLinkDivider}>•</span>
             <a href="#" className={styles.footerLink}>Terms of Service</a>
+            <span className={styles.bottomLinkDivider}>•</span>
             <a href="#" className={styles.footerLink}>Honor Code</a>
           </div>
         </div>

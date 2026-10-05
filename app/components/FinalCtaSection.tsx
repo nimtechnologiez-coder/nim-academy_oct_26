@@ -41,7 +41,7 @@ export default function FinalCtaSection({ onOpenConsultation }: FinalCtaProps) {
               id="final-cta-consultation-btn"
               style={{ padding: "16px 36px", fontSize: "1.05rem" }}
             >
-              <span>Book Free Consultation</span>
+              <span>Register Now</span>
               <ArrowRightIcon />
             </button>
 

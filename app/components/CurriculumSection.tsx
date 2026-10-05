@@ -2,7 +2,7 @@
 
 import React from "react";
 import styles from "../landing.module.css";
-import { ArrowRightIcon, SparklesIcon } from "./Icons";
+import { SparklesIcon } from "./Icons";
 
 export default function CurriculumSection() {
   const months = [
@@ -100,13 +100,6 @@ export default function CurriculumSection() {
                 <div className={styles.labProjectBox}>
                   <span className={styles.labLabel}>Hands-on Lab Project</span>
                   <div className={styles.labTitle}>{item.lab}</div>
-                </div>
-
-                <div className={styles.curriculumFooter}>
-                  <span>Explore Syllabus</span>
-                  <span className={styles.hoverArrow}>
-                    <ArrowRightIcon />
-                  </span>
                 </div>
               </div>
             </div>
