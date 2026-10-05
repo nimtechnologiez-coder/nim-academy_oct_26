@@ -129,7 +129,7 @@ export default function TestimonialsSection() {
       : testimonials.filter((t) => t.category === activeCategory);
 
   return (
-    <section className={`${styles.section} ${styles.testimonialsSection}`} id="testimonials" style={{ padding: "80px 0" }}>
+    <section className={`${styles.section} ${styles.testimonialsSection}`} id="testimonials" style={{ padding: "64px 0 40px" }}>
       <div className={styles.container}>
         {/* Header */}
         <div className={styles.sectionHeader} style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 40px auto" }}>
@@ -237,21 +237,8 @@ export default function TestimonialsSection() {
               }}
             >
               <div>
-                {/* Top Badge & Rating */}
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "16px" }}>
-                  <span
-                    style={{
-                      backgroundColor: "var(--color-nim-lime-bg)",
-                      color: "var(--color-nim-lime)",
-                      border: "1px solid var(--color-nim-lime-border)",
-                      padding: "4px 10px",
-                      borderRadius: "14px",
-                      fontSize: "0.75rem",
-                      fontWeight: 700,
-                    }}
-                  >
-                    🎉 {t.outcomeBadge}
-                  </span>
+                {/* Rating */}
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-end", marginBottom: "16px" }}>
                   <div style={{ color: "#f59e0b", fontSize: "0.9rem", letterSpacing: "1px" }}>
                     {"★".repeat(t.rating)}
                   </div>

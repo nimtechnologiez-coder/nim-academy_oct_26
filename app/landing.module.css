@@ -2050,7 +2050,7 @@
 
 .timelineTrack {
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   position: relative;
   gap: 12px;
 }
@@ -2059,8 +2059,8 @@
   content: '';
   position: absolute;
   top: 24px;
-  left: 40px;
-  right: 40px;
+  left: calc(100% / 12);
+  right: calc(100% / 12);
   height: 3px;
   background: linear-gradient(90deg, #0284c7 0%, #10b981 100%);
   z-index: 0;

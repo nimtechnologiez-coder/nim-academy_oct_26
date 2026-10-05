@@ -48,12 +48,6 @@ export default function PlacementsSection() {
       title: "Interview Ready",
       desc: "Rigorous 1-on-1 technical mock drills",
     },
-    {
-      step: "07",
-      month: "After",
-      title: "Interviews & Offers",
-      desc: "Referrals & partner pipeline placement",
-    },
   ];
 
   const prepCards = [

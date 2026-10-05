@@ -51,7 +51,7 @@ export default function GatewaysSection() {
   ];
 
   return (
-    <section className={styles.section} id="gateways">
+    <section className={styles.section} id="gateways" style={{ paddingTop: "40px" }}>
       <div className={styles.container}>
         <div className={styles.sectionHeader}>
           <span className={styles.sectionBadge}>Engineering Quality Standard</span>
