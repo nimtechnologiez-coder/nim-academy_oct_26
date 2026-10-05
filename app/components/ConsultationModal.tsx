@@ -25,7 +25,7 @@ export default function ConsultationModal({ isOpen, onClose }: ConsultationModal
     e.preventDefault();
     setIsSubmitting(true);
     try {
-      await fetch("http://127.0.0.1:8000/api/register/", {
+      await fetch("https://nim-academy-backend-oct26.onrender.com/api/register/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
